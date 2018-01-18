@@ -1,7 +1,7 @@
 import java.util.Hashtable;
 import java.util.Set;
 
-public class Solution {
+public class Solution { // 100%
     public int solution(int[] A) {
         int found = 0;
         Hashtable<String, Integer> ocur = new Hashtable<String, Integer>();
