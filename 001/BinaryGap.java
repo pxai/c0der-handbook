@@ -1,4 +1,4 @@
-class Solution {
+public class BinaryGap {
     public int solution(int N) {
         // 80%
         String binary = Integer.toBinaryString(N);
