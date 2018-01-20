@@ -1,6 +1,8 @@
 
 class BinaryGap
+
   def solution (number)
+
     binary = number.to_s(2)
     max = 0
     current = 0
@@ -13,8 +15,10 @@ class BinaryGap
         current = 0
       end
     end
+
     max
   end
+
 end
 
 
