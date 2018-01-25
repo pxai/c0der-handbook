@@ -4,7 +4,7 @@ public class Solution {
 	public int solution(int[] A) { // 81%
 
 		if (A.length == 1) {
-			return 0;
+			return 1;
 		}
 
 		Arrays.sort(A);
@@ -22,6 +22,7 @@ public class Solution {
 		Solution s = new Solution();
 		System.out.println("\n:" + s.solution(new int[] { 1 }));
 		System.out.println("\n:" + s.solution(new int[] { 0 }));
+		System.out.println("\n:" + s.solution(new int[] { 2 }));
 		System.out.println("\n:" + s.solution(new int[] { 1, 3, 1, 3, 2, 1, 5 }));
 		System.out.println("\n:" + s.solution(new int[] { 3, 1, 2, 4, 3 }));
 		System.out.println("\n:" + s.solution(new int[] { -1, -3}));
