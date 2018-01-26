@@ -3,7 +3,7 @@ import java.util.Arrays;
 // System.out.println("this is a debug message");
 
 class Solution {
-    public int solution(int[] A) {
+    public int solution(int[] A) {//66%
     	int B [] = new int[A.length];
 
 		if (A.length == 1) {
@@ -15,7 +15,7 @@ class Solution {
 				B[i] = A[i];
 
 		Arrays.sort(B);
-		//for (int i: B)	{ System.out.print(i +",");}
+		//for (int i: B)	{ System.out.print(i +",");} // [-1000000, 1000000] check! 
 		if (B[0] > 1) { return 1; }
 		for (int i = 1; i < B.length; i++)
 			if (B[i-1] != B[i] && B[i - 1] != B[i] - 1)
