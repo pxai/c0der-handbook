@@ -1,20 +1,13 @@
 class CountDiv { // 50% try without loop...
     public int solution(int A, int B, int K) {
-        int count = 0;
-        for (int i=A;i<=B;i++) {
-            if (i % K == 0)
-                count++;
-        }
-
-        return count;
-
+        return (B/K) - (A/K) + (A%K==0?1:0);
     }
 
 	public static void main(String[] args) {
 
 		Solution s = new Solution();
 		System.out.println(s.solution(6,11,2));
-		System.out.println(s.solution(0,10,4));
+		System.out.println(s.solution(11,345,17));
 //		System.out.println(s.solution(new int[] { 4, 5, 6, 2 }));
 //		System.out.println(s.solution(new int[] { 1, 3, 1, 3, 2, 1, 5 }));
 
