@@ -1,34 +1,25 @@
 import java.util.Stack;
 
-// you can write to stdout for debugging purposes, e.g.
-// System.out.println("this is a debug message");
+class StoneWall {
+    public int solution(int[] H) { // 100%
+      if (H.length == 1) { return 1; }
+       Stack<Integer> block = new Stack<Integer>();
+       int change = 0;
 
-class Solution {
-    public int solution(int[] H) {
-        if (H.length == 1) { return 1; }
-        Stack<Integer> block = new Stack<Integer>();
-        int change = 0;
-        int first = H[0];
-        int prev = H[0];
-        block.push(H[0]);
 
-        for (int i = 1; i<H.length;i++) {
-            if (H[i] < first) {
-                change++;
-                block = new Stack<Integer>();
-                block.push(H[i]);
-                prev = first = H[i];
-            }else if (H[i] < prev) {
-                change++;
-                prev = H[i];
-                block.pop();
-                block.push(H[i]);
-            } else {
-                block.push(H[i]);
-                change++;
-            }
-        }
-        //System.out.println(block);
-        return change - (block.size()-1);
+       for (int i = 0; i<H.length;i++) {
+           while (!block.isEmpty() && H[i] < block.peek()) {
+               block.pop();
+           }
+           if (block.isEmpty()) {
+               change++;
+               block.push(H[i]);
+           } else if (H[i] > block.peek()) {
+               change++;
+               block.push(H[i]);
+           }
+       }
+       //System.out.println(block);
+       return change;
     }
 }
