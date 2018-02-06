@@ -6,42 +6,44 @@ import java.util.Stack;
 
 class Fish {
   public int solution(int[] A, int[] B) {
-      int solution = 0;
-      int v = 0;
+    int solution = 0;
+    int v = 0;
 
-      Stack<Integer> fishes = new Stack<Integer>();
-      Stack<Integer> killers = new Stack<Integer>();
-      int survivors = 0;
-      int pushThem = -1;
+    if (A.length == 1) { return 1;}
 
-      for (int i = 0;i < A.length;i++) {
-          if (B[i] != 0) {
-              if (pushThem == -1) { pushThem = i; }
-              killers.push(B[i]);
-          }
+    Stack<Integer> fishes = new Stack<Integer>();
+    Stack<Integer> killers = new Stack<Integer>();
+    int survivors = 0;
+    int pushThem = -1;
 
-          if (pushThem != -1) {
-              fishes.push(A[i]);
-          }
-      }
+    for (int i = 0;i < A.length;i++) {
+        if (B[i] != 0) {
+            if (pushThem == -1) { pushThem = i; }
+            killers.push(B[i]);
+        }
+
+        if (pushThem != -1) {
+            fishes.push(A[i]);
+        }
+    }
 //
 //      System.out.println(fishes);
 //      System.out.println(killers);
 
-      for (int i = pushThem;i<A.length;i++) {
-    	  if (killers.isEmpty()) { break; }
-    	  int top = fishes.peek();
-    	  int killer = killers.peek();
-    	  if (top > killer) {
-    		  survivors++;
-    		  killers.pop();
-    		  fishes.pop();
-    	  } else if (killer > top) {
-    		  fishes.pop();
-    	  }
+    for (int i = pushThem;i<A.length;i++) {
+      if (killers.isEmpty()) { break; }
+      int top = fishes.peek();
+      int killer = killers.peek();
+      if (top > killer) {
+        survivors++;
+        killers.pop();
+        fishes.pop();
+      } else if (killer > top) {
+        fishes.pop();
       }
+    }
 
-      return pushThem + survivors +  (killers.isEmpty()?0:killers.size());
+    return pushThem + survivors +  (killers.isEmpty()?0:killers.size());
   }
 
 	public static void main(String[] args) {
