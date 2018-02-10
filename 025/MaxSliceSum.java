@@ -9,8 +9,8 @@ class Solution {
 		  B[i] = B[i-1] + A[i];
 
 	 //Arrays.asList(B).stream().map(Object::toString).collect(Collectors.joining(", "));
-	  int max = 0;
-	  for(int i=0;i<B.length;i++) {
+	  int max = B[0];
+	  for(int i=1;i<B.length;i++) {
 			if (B[i] > max)
 				max = B[i];
 	  }
