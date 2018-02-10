@@ -2,7 +2,7 @@
 
 class Solution {
   public int solution(int[] A) {
-	  int [] B = new int[A.length];
+    int [] B = new int[A.length];
 
 	  B[0] = A[0];
 	  for(int i=1;i<A.length;i++)
@@ -11,8 +11,13 @@ class Solution {
 	 //Arrays.asList(B).stream().map(Object::toString).collect(Collectors.joining(", "));
 	  int max = B[0];
 	  for(int i=1;i<B.length;i++) {
-			if (B[i] > max)
-				max = B[i];
+				if (A[i]> B[i]) {
+			    B[i] = A[i];
+
+				}
+			    if (B[i] > max) {
+				max = B[i];}
+
 	  }
 
 	  return max;
